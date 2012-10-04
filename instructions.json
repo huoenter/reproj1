@@ -1,0 +1,52 @@
+{
+	"ADD": {
+		"tap": [
+			{"dest": {
+				"type": 7,
+				"pos": 0
+			}},
+			{"source": {
+				"type": 4,
+				"pos": 1
+			}}
+		],
+		 "sink": [
+		 	{"dest": {
+				"type": 7,
+				"pos": 1
+			}},
+			{"eflags": {
+				"type": "eflags",
+				"pos": -1
+			}}
+		],
+		"operation" : "dest + source"
+	},
+	"ADC": {
+		"tap": [
+			{"dest": {
+				"type": 7,
+				"pos": 0
+			}},
+			{"source": {
+				"type": 4,
+				"pos": 1
+			}},
+			{"flag": {
+				"type": "eflags",
+				"pos": 0
+			}}
+		],
+		 "sink": [
+		 	{"dest": {
+				"type": 7,
+				"pos": 1
+			}},
+			{"eflags": {
+				"type": "eflags",
+				"pos": -1
+			}}
+		],
+		"operation" : "dest + source"
+	}
+}
