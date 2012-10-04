@@ -15,17 +15,25 @@ class ADD(INS):
 	'''
 	def __init__(self, name="ADD"):
 		INS.__init__(self, name)
-		self.source = ["mem", "reg", "imm"]
-		self.dest = ["mem", "reg"]
+		self.tap = [0, 1]
+		self.sink = [0]
 
 class ADC(ADD):
 	def __init__(self, name="ADC"):
 		ADD.__init__(self, name)
-		self.carry = ["reg"]
+		self.source = self.source + [2]
 
-class Generator(object):
-	def __init__(self, sth):
-		pass
+class Operand(object):
+	pass
+
+class Reg(Operand):
+	pass
+
+class Mem(Operand):
+	pass
+
+class Imm(Operand):
+	pass
 
 a = ADC()
-print a.dest
+print a.source
