@@ -1,0 +1,28 @@
+{
+ "dependency": [], 
+ "tap": [
+  {
+   "type": 6, 
+   "name": "dest", 
+   "pos": 0
+  }, 
+  {
+   "type": 7, 
+   "name": "source", 
+   "pos": 1
+  }
+ ], 
+ "name": "ADD", 
+ "sink": [
+  {
+   "type": 6, 
+   "name": "dest", 
+   "pos": 0
+  }, 
+  {
+   "type": -1, 
+   "name": "eflags", 
+   "pos": -1
+  }
+ ]
+}
