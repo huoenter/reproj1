@@ -10,7 +10,7 @@ class ADD(INS):
 					]
 		self.sink = [
 						Operand("dest", 6, 0), 
-						Operand("eflags", -1, -1)
+						Operand("eflags", "eflags", -1)
 					]
 
 ADD().toJson()
