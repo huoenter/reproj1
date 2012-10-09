@@ -1,3 +1,18 @@
+init = '''
+#define CF_MASK 1 << 1 // bit 1
+#define PF_MASK 1 << 2 // bit 2
+#define AF_MASK 1 << 4 // bit 4
+#define ZF_MASK 1 << 6 // bit 6
+#define SF_MASK 1 << 7 // bit 7
+#define OF_MASK 1 << 11 // bit 11
+
+'''
+funcName = '''
+static void Instrument_{0}(INS ins, void *v) {{
+	%s
+}}
+'''
+
 getMark = { "reg" : '''
   if(INS_OperandIsReg(ins, {0})) {{
     INS_InsertCall(ins, IPOINT_BEFORE, AFUNPTR(TaintForRegister),
@@ -8,7 +23,7 @@ getMark = { "reg" : '''
   %s
 		''',
 			"mem" : '''
-			if(INS_OperandIsMemory(ins, {0})) {{
+  if(INS_OperandIsMemory(ins, {0})) {{
     if(!INS_IsMemoryRead(ins)) return;
     INS_InsertCall(ins, IPOINT_BEFORE, AFUNPTR(TaintForMemory),
 		   IARG_MEMORYREAD_EA, IARG_MEMORYREAD_SIZE,
@@ -28,7 +43,13 @@ getMark = { "reg" : '''
   }}
 	%s
 		''',
-		"eflags"  : "haha"
+		"eflags"  : '''
+	INS_InsertCall(ins, IPOINT_BEFORE, AFUNPTR(TaintForRegister),
+		 IARG_ADDRINT, LEVEL_BASE::REG_EFLAGS,
+		 IARG_PTR, eflags,
+		 IARG_END);
+		%s
+		'''
 	}
 
 setMark = { "reg" : '''
