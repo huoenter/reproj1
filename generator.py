@@ -39,7 +39,9 @@ class Generator(object):
 	def _parseType(self, t):
 		tt = []
 		try: t = int(t)
-		except: return tt
+		except: 
+			print "haha"
+			return ["eflags"]
 		if t & 4 != 0: tt.append("reg")
 		if t & 2 != 0: tt.append("mem")
 		if t & 1 != 0: tt.append("imm")

@@ -2,17 +2,17 @@
 	"ADD": {
 		"tap": [
 			{"dest": {
-				"type": 7,
+				"type": 6,
 				"pos": 0
 			}},
 			{"source": {
-				"type": 4,
+				"type": 7,
 				"pos": 1
 			}}
 		],
 		 "sink": [
 		 	{"dest": {
-				"type": 7,
+				"type": 6,
 				"pos": 1
 			}},
 			{"eflags": {
@@ -25,11 +25,11 @@
 	"ADC": {
 		"tap": [
 			{"dest": {
-				"type": 7,
+				"type": 6,
 				"pos": 0
 			}},
 			{"source": {
-				"type": 4,
+				"type": 7,
 				"pos": 1
 			}},
 			{"flag": {
@@ -39,7 +39,7 @@
 		],
 		 "sink": [
 		 	{"dest": {
-				"type": 7,
+				"type": 6,
 				"pos": 1
 			}},
 			{"eflags": {

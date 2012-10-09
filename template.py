@@ -27,7 +27,8 @@ getMark = { "reg" : '''
 		   IARG_END);
   }}
 	%s
-		'''
+		''',
+		"eflags"  : "haha"
 	}
 
 setMark = { "reg" : '''
@@ -53,7 +54,19 @@ setMark = { "reg" : '''
 		   IARG_END);
   }}
   %s
-  '''}
+  ''',
+	"eflags" : '''
+	INS_InsertCall(ins, IPOINT_BEFORE, AFUNPTR(SetTaintForRegister),
+		 IARG_ADDRINT, LEVEL_BASE::REG_EFLAGS,
+         IARG_UINT32, 2,
+		 IARG_PTR, dest,
+		 IARG_PTR, src,
+		 IARG_END);
+	%s
+	'''
+
+  	}
+
 
 unknown = '''
   else {{
